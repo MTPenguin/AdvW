@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "name": "AdvW",
+  "id": "ce041111-8236-44ab-9398-875479bdb158",
+  "databaseType": "SqlServer",
+  "development": {
+    "scriptsFolder": "./schema-model"
+  },
+  "deployment": {
+    "flywayConfFiles": [
+      "./flyway.conf"
+    ],
+    "generateUndoScripts": true
+  },
+  "developmentDatabase": {
+    "connectionProvider": {
+      "type": "UsernamePassword",
+      "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019_Dev;encrypt=true;integratedSecurity=false;trustServerCertificate=true"
+    }
+  }
+}
