@@ -2,7 +2,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
+-- NEW LINE 23
 -- DROP FUNCTION [dbo].[ufnGetAllCategories]
 
 CREATE FUNCTION [dbo].[ufnGetAllCategories]()
