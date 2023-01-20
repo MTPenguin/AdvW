@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+# Flyway
 flyway-dev.user.json
-=======
-<<<<<<< HEAD
+
+>>>>>>> dev1
 # Logs
 logs
 *.log
@@ -105,8 +105,4 @@ dist
 .dynamodb/
 
 # TernJS port file
-.tern-port
-=======
-flyway-dev.user.json
->>>>>>> master
->>>>>>> 7381703f0cf73d55fcb298af3be44ab2fc00388d
+.tern-project
