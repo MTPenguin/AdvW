@@ -28,7 +28,8 @@
             "name": "Flyway Desktop b5071588-0282-4c20-83ab-db8237a9c9e3"
           }
         },
-        "schemas": []
+        "schemas": [],
+        "displayName": "AdventureWorksLT2019"
       }
     ]
   },
