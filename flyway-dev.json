@@ -30,6 +30,19 @@
         },
         "schemas": [],
         "displayName": "AdventureWorksLT2019"
+      },
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019_Test;encrypt=true;integratedSecurity=false;trustServerCertificate=true",
+          "username": "sa",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop c364780d-9324-4b53-9ff8-55164d8c02e2"
+          }
+        },
+        "schemas": [],
+        "displayName": "AdventureWorksLT2019_Test"
       }
     ]
   },
