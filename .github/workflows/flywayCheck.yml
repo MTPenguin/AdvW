@@ -128,6 +128,6 @@ jobs:
         
         - name: Trigger Deploy
           env:
-            GH_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+            GH_TOKEN: ${{ github.token }}
           run: |
             gh workflow run flywayDeploy.yml -f param_1=foo
