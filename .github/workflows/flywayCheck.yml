@@ -127,5 +127,7 @@ jobs:
             path: Artifact_Files/Reports/
         
         - name: Trigger Deploy
+          env:
+            GH_TOKEN: ${{ secret.ACTIONS_TOKEN }}
           run: |
             gh workflow run flywayDeploy.yml -f param_1=foo
