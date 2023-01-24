@@ -131,4 +131,4 @@ jobs:
           env:
             GH_TOKEN: ${{ github.token }}
           run: |
-            gh workflow run flywayDeploy.yml -f param_1=foo
+            gh workflow run flywayDeploy.yml
