@@ -80,6 +80,7 @@ jobs:
   #         path: Artifact_Files/Migration/
  
   prod-preparation:
+      permissions: write-all
       name: Production Deployment Preparation - Report Creation
       # The type of runner that the job will run on
       runs-on: self-hosted
