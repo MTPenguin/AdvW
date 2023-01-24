@@ -125,3 +125,7 @@ jobs:
           with: 
             name: flyway-reports
             path: Artifact_Files/Reports/
+        
+        - name: Trigger Deploy
+          run: |
+            gh workflow run flywayDeploy.yml -f param_1=foo
