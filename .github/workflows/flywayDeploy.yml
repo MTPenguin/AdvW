@@ -29,14 +29,12 @@ jobs:
     runs-on: self-hosted
     environment: 'prod' #Ensure this environment name is setup in the projects Settings>Environment area. Ensuring any reviewers are also configured 
     if: ${{ true }} #Set this variable to false to temporarily disable the job
-    needs: prod-preparation
     env:
       stage: 'Prod'
       databaseName: ${{ secrets.databaseName}}
       JDBC: ${{ secrets.JDBC }}
       userName: ${{ secrets.userName }}
       password: ${{ secrets.password }}
-      pauseForCodeReview: true
  
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
