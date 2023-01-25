@@ -9,12 +9,58 @@
   "deployment": {
     "flywayConfFiles": [
       "./flyway.conf"
+    ],
+    "shadowDatabase": {
+      "connectionProvider": {
+        "type": "UsernamePassword",
+        "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019_Shadow;encrypt=true;integratedSecurity=false;trustServerCertificate=true"
+      }
+    },
+    "generateUndoScripts": true,
+    "targetDatabases": [
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019;encrypt=true;integratedSecurity=false;trustServerCertificate=true",
+          "username": "sa",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop b5071588-0282-4c20-83ab-db8237a9c9e3"
+          }
+        },
+        "schemas": [],
+        "displayName": "AdventureWorksLT2019"
+      },
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019_Test;encrypt=true;integratedSecurity=false;trustServerCertificate=true",
+          "username": "sa",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop c364780d-9324-4b53-9ff8-55164d8c02e2"
+          }
+        },
+        "schemas": [],
+        "displayName": "AdventureWorksLT2019_Test"
+      }
     ]
   },
   "developmentDatabase": {
     "connectionProvider": {
       "type": "UsernamePassword",
       "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019_Dev;encrypt=true;integratedSecurity=false;trustServerCertificate=true"
+    }
+  },
+  "capabilities": {
+    "staticData": {
+      "configuredTables": [
+        {
+          "schema": "SalesLT",
+          "table": "Customer",
+          "excludedColumns": []
+        }
+      ]
     }
   }
 }

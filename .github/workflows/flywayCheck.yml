@@ -5,10 +5,11 @@ name: Flyway Check Pipeline (Self-Hosted)
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "release" branch
-  #push:
-    #branches:
-      #- release
-      #- 'migrations/**'
+  push:
+    branches:
+      - 'dev**'
+    paths:
+      - 'migrations/**'
  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -80,6 +81,7 @@ jobs:
           path: Artifact_Files/Migration/
  
   prod-preparation:
+      permissions: write-all
       name: Production Deployment Preparation - Report Creation
       # The type of runner that the job will run on
       runs-on: self-hosted
@@ -127,5 +129,8 @@ jobs:
             path: Artifact_Files/Reports/
         
         - name: Trigger Deploy
+          env:
+            GH_TOKEN: ${{ github.token }}
           run: |
-            gh workflow run flywayDeploy.yml -f param_1=foo
+            gh workflow run flywayDeploy.yml -r ${{ github.ref }}
+            

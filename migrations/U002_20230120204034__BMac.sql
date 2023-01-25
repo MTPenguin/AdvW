@@ -1,11 +1,27 @@
-SET QUOTED_IDENTIFIER ON
+﻿SET NUMERIC_ROUNDABORT OFF
 GO
-SET ANSI_NULLS ON
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-
+PRINT N'Altering [dbo].[ufnGetCustomerInformation]'
+GO
+ALTER FUNCTION [dbo].[ufnGetCustomerInformation](@CustomerID int)
+RETURNS TABLE 
+AS 
+-- Returns the CustomerID, first name, and last name for the specified customer.
+RETURN (
+    SELECT 
+        CustomerID, 
+        FirstName, 
+        LastName
+    FROM [SalesLT].[Customer] 
+    WHERE [CustomerID] = @CustomerID
+);
+GO
+PRINT N'Altering [dbo].[ufnGetAllCategories]'
+GO
 -- DROP FUNCTION [dbo].[ufnGetAllCategories]
 
-CREATE FUNCTION [dbo].[ufnGetAllCategories]()
+ALTER FUNCTION [dbo].[ufnGetAllCategories]()
 RETURNS @retCategoryInformation TABLE 
 (
     -- Columns returned by the function
@@ -37,5 +53,4 @@ BEGIN
 	RETURN;
 END;
 GO
-EXEC sp_addextendedproperty N'MS_Description', N'Table value function returning every product category and its parent, if applicable.', 'SCHEMA', N'dbo', 'FUNCTION', N'ufnGetAllCategories', NULL, NULL
-GO
+

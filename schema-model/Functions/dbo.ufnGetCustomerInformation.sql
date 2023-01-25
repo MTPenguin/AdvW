@@ -7,7 +7,6 @@ CREATE FUNCTION [dbo].[ufnGetCustomerInformation](@CustomerID int)
 RETURNS TABLE 
 AS 
 -- Returns the CustomerID, first name, and last name for the specified customer.
---- New line 5
 RETURN (
     SELECT 
         CustomerID, 
