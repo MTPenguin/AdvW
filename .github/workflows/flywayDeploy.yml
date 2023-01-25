@@ -1,7 +1,8 @@
 # This is a basic workflow to help you get started with Actions
  
 name: Flyway Deploy Pipeline (Self-Hosted)
- 
+run-name: Deploy ${{ inputs.from_branch }} - ${{ inputs.commit_message }} to ${{ inputs.deploy_target }}
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "release" branch
@@ -12,7 +13,19 @@ on:
  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
- 
+    inputs:
+      from_branch:
+        description: 'From Branch'
+        required: false
+        default: '?'
+      deploy_target:
+        description: 'Where deployed'
+        required: false
+        default: '?'
+      commit_message:
+        description: 'Head Commit Message'
+        required: false
+
 env:
  
   FLYWAY_LICENSE_KEY: ${{ secrets.FLYWAY_LICENSE_KEY }} #Repository Secret - Create this within the Projects Settings > Secrets > Actions section
