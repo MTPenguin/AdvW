@@ -132,5 +132,5 @@ jobs:
           env:
             GH_TOKEN: ${{ github.token }}
           run: |
-            gh workflow run flywayDeploy.yml -r ${{ github.ref }} -f deploy_target=${{ env.databaseName }}
+            gh workflow run flywayDeploy.yml -r ${{ github.ref }} -f commit_message=${{ github.event.head_commit.message }} -f deploy_target=${{ env.databaseName }}
             
