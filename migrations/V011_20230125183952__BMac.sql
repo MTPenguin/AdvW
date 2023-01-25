@@ -10,4 +10,3 @@ GO
 PRINT(N'Update 2 rows in [SalesLT].[Customer]')
 UPDATE [SalesLT].[Customer] SET [Suffix]=N'Dude' WHERE [CustomerID] = 3
 UPDATE [SalesLT].[Customer] SET [Suffix]=N'Mrs.' WHERE [CustomerID] = 4
-
