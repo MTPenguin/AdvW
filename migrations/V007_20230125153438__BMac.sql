@@ -7,7 +7,6 @@ GO
 SET XACT_ABORT ON
 GO
 
-
 PRINT(N'Add 848 rows to [SalesLT].[Customer]')
 SET IDENTITY_INSERT [SalesLT].[Customer] ON
 INSERT INTO [SalesLT].[Customer] ([CustomerID], [NameStyle], [Title], [FirstName], [MiddleName], [LastName], [Suffix], [CompanyName], [SalesPerson], [EmailAddress], [Phone], [PasswordHash], [PasswordSalt], [rowguid], [ModifiedDate], [NewColumnAdded], [NewColumn2], [NewCol3]) VALUES (1, 0, N'Mr.', N'Orlando', N'N.', N'Gee', N'Dr.', N'A Bike Store', N'adventure-works\pamela0', N'orlando0@adventure-works.com', N'245-555-0173', 'L/Rlwxzp4w7RWmEgXX+/A7cXaePEPcp+KwQhl2fJL7w=', '1KjXYs4=', '3f5ae95e-b87d-4aed-95b4-c3797afcb74f', '2005-08-01 00:00:00.000', NULL, NULL, NULL)
