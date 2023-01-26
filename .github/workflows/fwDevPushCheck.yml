@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
  
-name: Flyway Check Pipeline (Self-Hosted)
+name: Flyway Dev Check Pipeline (Self-Hosted)
  
 # Controls when the workflow will run
 on:
@@ -131,7 +131,7 @@ jobs:
         
         - name: Trigger Deploy
           env:
-            GH_TOKEN: ${{ github.token }}
+            GITHUB_TOKEN: ${{ github.token }}
           run: |
-            gh workflow run flywayDeploy.yml -r ${{ github.ref }} -f from_label="${{ env.branch_name }}" -f commit_message="${{ github.event.head_commit.message }}" -f to_label="${{ env.databaseName }}"
+            gh workflow run fwDispatchDeploy.yml -r ${{ github.ref }} -f from_label="${{ env.branch_name }}" -f commit_message="${{ github.event.head_commit.message }}" -f to_label="${{ env.databaseName }}"
             
