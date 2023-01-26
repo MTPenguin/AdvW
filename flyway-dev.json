@@ -14,7 +14,8 @@
       "connectionProvider": {
         "type": "UsernamePassword",
         "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019_Shadow;encrypt=true;integratedSecurity=false;trustServerCertificate=true"
-      }
+      },
+      "displayName": "AdventureWorksLT2019_Shadow"
     },
     "generateUndoScripts": true,
     "targetDatabases": [
@@ -50,7 +51,8 @@
     "connectionProvider": {
       "type": "UsernamePassword",
       "url": "jdbc:sqlserver://10.211.55.2;authentication=sqlPassword;databaseName=AdventureWorksLT2019_Dev;encrypt=true;integratedSecurity=false;trustServerCertificate=true"
-    }
+    },
+    "displayName": "AdventureWorksLT2019_Dev"
   },
   "capabilities": {
     "staticData": {
