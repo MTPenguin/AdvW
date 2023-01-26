@@ -4,10 +4,10 @@ name: Flyway Check Pipeline (Self-Hosted)
  
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "release" branch
+  # Triggers the workflow on push or pull request events but only for branches beginning with 'task' that have changes in the migrations folder.
   push:
     branches:
-      - 'dev**'
+      - 'task**'
     paths:
       - 'migrations/**'
  
@@ -104,6 +104,7 @@ jobs:
         failReleaseIfDriftDetected: false
         staticCodeAnalysis: false #Currently not setup in this pipeline
         publishArtifacts: true
+        GITHUB_TOKEN: ${{ github.token }}
  
       # Steps represent a sequence of tasks that will be executed as part of the job
       steps:
@@ -129,9 +130,6 @@ jobs:
             name: flyway-reports
             path: Artifact_Files/Reports/
         
-        - name: Trigger Deploy
-          env:
-            GH_TOKEN: ${{ github.token }}
-          run: |
-            gh workflow run flywayDeploy.yml -r ${{ github.ref }} -f from_branch="${{ env.branch_name }}" -f commit_message="${{ github.event.head_commit.message }}" -f deploy_target="${{ env.databaseName }}"
-            
+        - name: create pull request
+          run: gh pr create --title 'Merge branch_to_merge into ${{ env.branch_name }}' --body 'Created by Github action'
+
